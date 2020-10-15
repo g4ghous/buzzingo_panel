@@ -106,9 +106,9 @@ export class TravelLogin extends Component {
                     data: data,
                 })
                     .then(res => {
-                        console.log('res', res.data)
+                        console.log('suc', res.data.success.token)
                         console.log('Token', res.data.token)
-                        localStorage.setItem('token', res.data.token)
+                        localStorage.setItem('token', res.data.success.token)
                         window.location.href = "/component/Dashboard"
 
                         this.setState({
@@ -250,12 +250,12 @@ export class TravelLogin extends Component {
                                                 <button className="btn btn-danger btn-block waves-effect waves-light" type="submit" onClick={this.Login.bind(this)}>Log In</button>
                                             </div>
                                         </div>
-
+{/* 
                                         <div className="form-group m-t-10 mb-0 row">
                                             <div className="col-sm-12 m-t-20 my-forgot">
                                                 <a href="/component/TravelForgot" className="text-muted"><i className="mdi mdi-lock"></i> <small>Forgot your password ?</small></a>
                                             </div>
-                                        </div>
+                                        </div> */}
                                     </form>
                                 </div>
 

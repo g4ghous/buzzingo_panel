@@ -26,7 +26,7 @@ import { UpdatePrivacy } from './component/UpdatePrivacy';
 import { ViewSponsor } from './component/ViewSponsor'
 import { ViewTerms } from './component/ViewTerms'
 import { ViewEventType } from './component/ViewEventType'
-import ViewSystemBusinessUser from './component/ViewSystemBusinessUser'
+// import ViewSystemBusinessUser from './component/ViewSystemBusinessUser'
 import { ViewPrivacy } from './component/ViewPrivacy'
 import TravelLogin from './component/TravelLogin';
 // import Iternary from './component/Iternary';
@@ -60,7 +60,7 @@ import CreateCategory from './component/CreateCategory';
 import CreateCoupon from './component/CreateCoupon';
 import UpdateCategory from './component/UpdateCategory';
 import UpdateCoupon from './component/UpdateCoupon';
-
+import ViewContact from './component/ViewContact'
 
 export class App extends Component {
   render() {
@@ -118,8 +118,9 @@ export class App extends Component {
             <Route path="/component/ViewGuidelines" component={ViewGuidelines} />
             <Route path="/component/ViewEvents" component={ViewEvents} />
             <Route path="/component/ViewSlider" component={ViewSlider} />
+            <Route path="/component/ViewContact" component={ViewContact}/>
 
-            <Route path="/component/ViewSystemBusinessUser" component={ViewSystemBusinessUser} />
+            {/* <Route path="/component/ViewSystemBusinessUser" component={ViewSystemBusinessUser} /> */}
             <Route path="/component/ViewProduct" component={ViewProduct} />
             <Route path="/component/ViewCategory" component={ViewCategory} />
             <Route path="/component/ViewCoupon" component={ViewCoupon} />
