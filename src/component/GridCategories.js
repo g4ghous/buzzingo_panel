@@ -5,6 +5,52 @@ import axios from 'axios';
 import $ from 'jquery';
 
 export class GridCategories extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: [],
+            errorText: '',
+            id: '',
+            GuideId: '',
+        }
+    }
+
+    componentDidMount() {
+        var data;
+        axios({
+            method: 'get',
+            url: Serverurl + 'category_show',
+            data: data,
+            headers: {
+                'Authorization': 'Bearer' + ' ' + localStorage.getItem('token'),
+            },
+            config: {
+                headers: { 'Content-Type': 'application/json' }
+            }
+
+        }).then(res => {
+            console.log('res', res.data.data)
+            console.log('hey', res.data)
+            this.setState({
+                data: res.data,
+            })
+            $(document).ready(function () {
+                $('#datatable2').DataTable();
+            });
+            // console.log('data', res.data.data)
+        }).catch((err) => {
+            console.log(err)
+            if (err) {
+                // console.log('err', err.response)
+                console.log({ err })
+            }
+        })
+    }
+
+    viewCategory(id) {
+        localStorage.setItem('categoryId', id)
+        console.log(id)
+    }
     
 
     render() {
@@ -29,32 +75,26 @@ export class GridCategories extends Component {
                                                 <tr>
                                                     <th>Image</th>
                                                     <th>Name</th>
-                                                    <th>Discription</th>
-                                                    <th>Slug</th>
-                                                    <th>Count</th>
                                                     <th>Actions</th>
-
-
                                                 </tr>
                                             </thead>
 
 
-                                            <tr >
-                                                <td></td>
-                                                <td>Computer</td>
-                                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </td>
-                                                <td>Computer</td>
-                                                <td>14</td>
-                                                
+                                            <tbody>
+                                                {this.state.data.map((category) =>
+                                                    <tr key={category.id}>
+                                                        <td><img src={category.image} width="50"/></td>
+                                                        <td>{category.name}</td>
+                                                         <td>
+                                                            <div class="icon-pad">
+                                                                <a href="/component/ViewContact" onClick={this.viewCategory.bind(this, category.id)}><i className="fas fa-eye"></i></a>
+                                                                {/* <i className="fas fa-trash-alt"></i> */}
+                                                            </div>
+                                                        </td> 
+                                                    </tr>
+                                                )}
 
-                                                <td>
-                                                    <div class="icon-pad">
-                                                        <a href="/component/updateCategory"><i className="fas fa-pencil-alt"></i></a>
-                                                        <a href="/component/ViewCategory"><i className="fas fa-eye"></i></a>
-                                                        <i className="fas fa-trash-alt"></i>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            </tbody> 
                                         </table>
                                     </div>
                                 </div>

@@ -17,10 +17,10 @@ export class GridProducts extends Component {
                                 <div class="card-body table-responsive">
                                     <div className="list-head-btn">
                                         <div className="head">
-                                            <h4>List Brands</h4>
+                                            <h4>List Deals</h4>
                                         </div>
                                         <div class="button-align">
-                                            <a href="/component/CreateProduct" type="button" class="btn btn-danger waves-effect waves-light submit-button" >Add Brand</a>
+                                            <a href="/component/CreateProduct" type="button" class="btn btn-danger waves-effect waves-light submit-button" >Add Deals</a>
                                         </div>
                                     </div>
                                     <div class="table-3">
@@ -28,12 +28,11 @@ export class GridProducts extends Component {
                                             <thead>
                                                 <tr>
                                                     <th>Image</th>
-                                                    <th>Name</th>
-                                                    <th>Stock</th>
-                                                    <th>Price</th>
-                                                    <th>Categories</th>
-                                                    <th>Tags</th>
-                                                    <th>Date</th>
+                                                    <th>Brand Name</th>
+                                                    <th>Category</th>
+                                                    <th>Offer</th>
+                                                    <th>Url</th>
+                                                    <th>Description</th>
                                                     <th>Actions</th>
 
 
@@ -49,7 +48,6 @@ export class GridProducts extends Component {
                                                     <td>in stock</td>
                                                     <td>₨490.00</td>
                                                     <td>Uncategorized</td>
-                                                    <td></td>
                                                     <td>20/8/2020</td>
 
                                                     <td>
